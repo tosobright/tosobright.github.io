@@ -859,7 +859,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: location.href,
+            id: decodeURI(window.location.pathname),
             owner: 'tosobright',
             repo: 'tosobright.github.io',
             
