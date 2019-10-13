@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：接口名称| 自动或静态 |IP 地址 |子网掩码 | 网关 | 接口跃点数-|-|-|-|-|-本地连接| static/dhcp | 192.168.5.10 | 255.255.255.0 | 192.168.0.1 | 0 | 代码12345678910111213141516171819202122232">
+<meta name="description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：    接口名称 自动或静态 IP 地址 子网掩码 网关 接口跃点数    本地连接 static/dhcp 192.168.5.10 255.255.255.0 192.168.0.1 0   代码12345678910111213141516171819202122232425262728293031@ech">
 <meta name="keywords" content="bat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BAT-IP">
 <meta property="og:url" content="http://www.soshare.cn/2010/01/13/100113-BAT-IP/index.html">
 <meta property="og:site_name" content="soshare">
-<meta property="og:description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：接口名称| 自动或静态 |IP 地址 |子网掩码 | 网关 | 接口跃点数-|-|-|-|-|-本地连接| static/dhcp | 192.168.5.10 | 255.255.255.0 | 192.168.0.1 | 0 | 代码12345678910111213141516171819202122232">
+<meta property="og:description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：    接口名称 自动或静态 IP 地址 子网掩码 网关 接口跃点数    本地连接 static/dhcp 192.168.5.10 255.255.255.0 192.168.0.1 0   代码12345678910111213141516171819202122232425262728293031@ech">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-13T05:36:09.501Z">
+<meta property="og:updated_time" content="2019-10-13T06:43:23.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BAT-IP">
-<meta name="twitter:description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：接口名称| 自动或静态 |IP 地址 |子网掩码 | 网关 | 接口跃点数-|-|-|-|-|-本地连接| static/dhcp | 192.168.5.10 | 255.255.255.0 | 192.168.0.1 | 0 | 代码12345678910111213141516171819202122232">
+<meta name="twitter:description" content="介绍双网卡网络接入，切换 IP 其中：netsh int ip set add 解释：    接口名称 自动或静态 IP 地址 子网掩码 网关 接口跃点数    本地连接 static/dhcp 192.168.5.10 255.255.255.0 192.168.0.1 0   代码12345678910111213141516171819202122232425262728293031@ech">
 
 
 
@@ -353,7 +353,27 @@
 
       
         <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>双网卡网络接入，切换 IP</p>
-<p>其中：netsh int ip set add 解释：<br>接口名称| 自动或静态 |IP 地址 |子网掩码 | 网关 | 接口跃点数<br>-|-|-|-|-|-<br>本地连接| static/dhcp | 192.168.5.10 | 255.255.255.0 | 192.168.0.1 | 0 |</p>
+<p>其中：netsh int ip set add 解释：</p>
+<table>
+<thead>
+<tr>
+<th>接口名称</th>
+<th>自动或静态</th>
+<th>IP 地址</th>
+<th>子网掩码</th>
+<th>网关</th>
+<th>接口跃点数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地连接</td>
+<td>static/dhcp</td>
+<td>192.168.5.10</td>
+<td>255.255.255.0</td>
+<td>192.168.0.1</td>
+<td>0</td>
+</tr>
+</tbody></table>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">COLOR</span> <span class="number">0</span>A</span><br><span class="line"><span class="built_in">echo</span> 电信/校内互换！</span><br><span class="line">:<span class="built_in">start</span></span><br><span class="line"><span class="built_in">echo</span> <span class="number">1</span>.电信网</span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span>.校内网</span><br><span class="line"><span class="built_in">echo</span> <span class="number">3</span>.退出</span><br><span class="line"><span class="built_in">echo</span> 请输入选择，并回车！:</span><br><span class="line"><span class="built_in">set</span> /p UserChoice=</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%UserChoice%</span>"=="<span class="number">1</span>" <span class="keyword">goto</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%UserChoice%</span>"=="<span class="number">2</span>" <span class="keyword">goto</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%UserChoice%</span>"=="<span class="number">3</span>" <span class="keyword">goto</span> <span class="number">3</span></span><br><span class="line"><span class="built_in">echo</span> 请选择你所需要的网络!</span><br><span class="line"><span class="keyword">goto</span> <span class="built_in">start</span></span><br><span class="line">:<span class="number">1</span></span><br><span class="line"><span class="built_in">echo</span> 你选择了电信网!</span><br><span class="line"><span class="built_in">echo</span> 正在设置ip,子网,DNS,请稍候......</span><br><span class="line">netsh int ip <span class="built_in">set</span> add name="本地连接" dhcp</span><br><span class="line">netsh int ip <span class="built_in">set</span> dns name="本地连接" dhcp</span><br><span class="line"><span class="built_in">echo</span> 设置完毕!</span><br><span class="line"><span class="keyword">goto</span> <span class="number">3</span></span><br><span class="line">:<span class="number">2</span></span><br><span class="line"><span class="built_in">echo</span> 你选择了校内网！</span><br><span class="line"><span class="built_in">echo</span> 正在设置ip,子网,DNS,请稍候......</span><br><span class="line">netsh int ip <span class="built_in">set</span> add name="本地连接" static <span class="number">192</span>.<span class="number">168</span>.<span class="number">0</span>.<span class="number">15</span> <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">0</span>.<span class="number">1</span> <span class="number">0</span></span><br><span class="line">netsh int ip <span class="built_in">set</span> dns name="本地连接" static <span class="number">192</span>.<span class="number">168</span>.<span class="number">0</span>.<span class="number">2</span></span><br><span class="line"><span class="built_in">echo</span> 设置完毕!</span><br><span class="line"><span class="built_in">echo</span> 正在调用校内客户端......</span><br><span class="line"><span class="built_in">start</span> "" "C:\Program Files\Edu Supplicant\supplicant.exe"</span><br><span class="line"><span class="keyword">goto</span> <span class="number">3</span></span><br><span class="line">:<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="DNS-切换"><a href="#DNS-切换" class="headerlink" title="DNS 切换"></a>DNS 切换</h1><p>对于 DNS 的备用的使用见下面：</p>
@@ -550,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -572,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
