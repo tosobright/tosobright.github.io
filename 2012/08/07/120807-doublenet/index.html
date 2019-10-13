@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vb,LabVIEW,dll,">
+  <meta name="keywords" content="bat,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="创建 DLL 文件（方法来自网络）VB 编译文件实际上采取了两次编译的方法  首先是调用 c2.exe 产生 OBJ 文件 然后调用 Link.exe 连接。  如果在 link 的时候添加 EXPORT 选项，实际上是可以输出函数的。但是，在 VB 的工程选项中将这些屏蔽了，VB 在 Build 完成后会将 OBJ 文件删除，这样就无法通过 Link 来输出函数了。这里，可以使用一个小软件来阻止">
-<meta name="keywords" content="vb,LabVIEW,dll">
+<meta name="description" content="介绍双网卡进不同的网段，一个进内网，一个进外网 在 windows 中输入 cmd 进入 dos 命令行；输入 route print 查看路由信息(双网卡最大的问题就是路由的选择) 在这里，我的 172.16.4.1 为内网，192.168.0.250 为外网 使用 route delete 0.0.0.0 ，将这 2 条路由信息删除并以 route add -p 0.0.0.0 mask 0.">
+<meta name="keywords" content="bat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LabVIEW 调用 VB 创建的 dll 动态链接库">
-<meta property="og:url" content="http://www.soshare.cn/2011/06/25/110625-labview-vb-dll/index.html">
+<meta property="og:title" content="双网卡上不同网络，外网和内网">
+<meta property="og:url" content="http://www.soshare.cn/2012/08/07/120807-doublenet/index.html">
 <meta property="og:site_name" content="soshare">
-<meta property="og:description" content="创建 DLL 文件（方法来自网络）VB 编译文件实际上采取了两次编译的方法  首先是调用 c2.exe 产生 OBJ 文件 然后调用 Link.exe 连接。  如果在 link 的时候添加 EXPORT 选项，实际上是可以输出函数的。但是，在 VB 的工程选项中将这些屏蔽了，VB 在 Build 完成后会将 OBJ 文件删除，这样就无法通过 Link 来输出函数了。这里，可以使用一个小软件来阻止">
+<meta property="og:description" content="介绍双网卡进不同的网段，一个进内网，一个进外网 在 windows 中输入 cmd 进入 dos 命令行；输入 route print 查看路由信息(双网卡最大的问题就是路由的选择) 在这里，我的 172.16.4.1 为内网，192.168.0.250 为外网 使用 route delete 0.0.0.0 ，将这 2 条路由信息删除并以 route add -p 0.0.0.0 mask 0.">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.soshare.cn/attach/VBLINK.jpg">
-<meta property="og:updated_time" content="2019-10-13T06:42:07.884Z">
+<meta property="og:updated_time" content="2019-10-13T08:20:09.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LabVIEW 调用 VB 创建的 dll 动态链接库">
-<meta name="twitter:description" content="创建 DLL 文件（方法来自网络）VB 编译文件实际上采取了两次编译的方法  首先是调用 c2.exe 产生 OBJ 文件 然后调用 Link.exe 连接。  如果在 link 的时候添加 EXPORT 选项，实际上是可以输出函数的。但是，在 VB 的工程选项中将这些屏蔽了，VB 在 Build 完成后会将 OBJ 文件删除，这样就无法通过 Link 来输出函数了。这里，可以使用一个小软件来阻止">
-<meta name="twitter:image" content="http://www.soshare.cn/attach/VBLINK.jpg">
+<meta name="twitter:title" content="双网卡上不同网络，外网和内网">
+<meta name="twitter:description" content="介绍双网卡进不同的网段，一个进内网，一个进外网 在 windows 中输入 cmd 进入 dos 命令行；输入 route print 查看路由信息(双网卡最大的问题就是路由的选择) 在这里，我的 172.16.4.1 为内网，192.168.0.250 为外网 使用 route delete 0.0.0.0 ，将这 2 条路由信息删除并以 route add -p 0.0.0.0 mask 0.">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.soshare.cn/2011/06/25/110625-labview-vb-dll/">
+  <link rel="canonical" href="http://www.soshare.cn/2012/08/07/120807-doublenet/">
 
 
 
 
 
-  <title>LabVIEW 调用 VB 创建的 dll 动态链接库 | soshare</title>
+  <title>双网卡上不同网络，外网和内网 | soshare</title>
   
 
 
@@ -255,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.soshare.cn/2011/06/25/110625-labview-vb-dll/">
+    <link itemprop="mainEntityOfPage" href="http://www.soshare.cn/2012/08/07/120807-doublenet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tosobright">
@@ -272,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LabVIEW 调用 VB 创建的 dll 动态链接库</h1>
+          <h1 class="post-title" itemprop="name headline">双网卡上不同网络，外网和内网</h1>
         
 
         <div class="post-meta">
@@ -284,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-06-25T00:00:00+08:00">
-                2011-06-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2012-08-07T00:00:00+08:00">
+                2012-08-07
               </time>
             
 
@@ -325,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2011/06/25/110625-labview-vb-dll/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2011/06/25/110625-labview-vb-dll/" itemprop="commentsCount"></span>
+                <a href="/2012/08/07/120807-doublenet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2012/08/07/120807-doublenet/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -354,16 +352,16 @@
       
 
       
-        <h1 id="创建-DLL-文件（方法来自网络）"><a href="#创建-DLL-文件（方法来自网络）" class="headerlink" title="创建 DLL 文件（方法来自网络）"></a>创建 DLL 文件（方法来自网络）</h1><p>VB 编译文件实际上采取了两次编译的方法</p>
-<ol>
-<li>首先是调用 c2.exe 产生 OBJ 文件</li>
-<li>然后调用 Link.exe 连接。</li>
-</ol>
-<p>如果在 link 的时候添加 EXPORT 选项，实际上是可以输出函数的。但是，在 VB 的工程选项中将这些屏蔽了，VB 在 Build 完成后会将 OBJ 文件删除，这样就无法通过 Link 来输出函数了。<br>这里，可以使用一个小软件来阻止 VB 将 OBJ 文件删除，如图：</p>
-<p><img src="/attach/VBLINK.jpg" alt="LabVIEW"></p>
-<p>这个 link.exe 是用来替换 VB 中的 link.exe;而原来的 link.exe 改名为 link2.exe。<br>我们这里来创建个 dll 文件，添加个模块，在里面添加代码如下：<br>Public Function sysfont(ByVal a As Long, ByVal b As Long) As Long<br>sysfont = a + b<br>End Function<br>当我们创建了个 dll 工程后，进行生成 dll 文件时，就会弹出上图的编译对话框，我们就可以将该工程文件夹中的 Class1.OBJ、Module1.OBJ 和工程 1.OBJ 复制出来！<br>这里点击确定可以生成无输出函数的 dll 文件，点击取消则不会生成，不过会提示相应的错误信息！<br>将上面的 3 个文件提取出来后，就可以下面的批处理文件来生成 dll 文件了！<br>Link2.exe “E:\桌面\vb_dll\Class1.obj” “E:\桌面\vb_dll\Module1.obj” “E:\桌面\vb_dll\工程 1.obj” “D:\Microsoft Visual Studio\VB98\VBAEXE6.LIB” /ENTRY:__vbaS /EXPORT:sysfont /OUT:”E:\桌面\vb_dll\ProjectOK.dll” /BASE:0x11000000 /SUBSYSTEM:WINDOWS,4.0 /VERSION:1.0 /Dll /INCREMENTAL:NO /OPT:REF /MERGE:.rdata=.text /IGNORE:4078<br>pause&amp;.<br>我们可以把上面的代码保存成 link.bat 然后将里面的路径和函数名修改即可自动生成了！</p>
-<h1 id="LabVIEW-的调用"><a href="#LabVIEW-的调用" class="headerlink" title="LabVIEW 的调用"></a>LabVIEW 的调用</h1><p>生成了 dll 文件后，就可以使用调用库函数节点了！</p>
-<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p><a href="/attach/DLL-VB.zip">DLL 工程以及相应工具</a><br><a href="/attach/labview_example.zip">LabVIEW 调用例子</a></p>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>双网卡进不同的网段，一个进内网，一个进外网</p>
+<p>在 windows 中输入 cmd 进入 dos 命令行；<br>输入 route print 查看路由信息(双网卡最大的问题就是路由的选择)</p>
+<p>在这里，我的 172.16.4.1 为内网，192.168.0.250 为外网</p>
+<p>使用 route delete 0.0.0.0 ，将这 2 条路由信息删除并以</p>
+<p>route add -p 0.0.0.0 mask 0.0.0.0 192.168.0.250 metric 1<br>route add -p 0.0.0.0 mask 255.255.252.0 172.16.4.1 metric 20</p>
+<p>来设置即可！</p>
+<p>route 命令的相关信息，具体请查看系统说明！</p>
+<p>destination Specifies the host.<br>MASK Specifies that the next parameter is the ‘netmask’ va<br>netmask Specifies a subnet mask value for this route entry.<br>If not specified, it defaults to 255.255.255.255.<br>gateway Specifies gateway.<br>interface the interface number for the specified route.<br>METRIC specifies the metric, ie. cost for the destination.</p>
+<h1 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h1><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">color</span> <span class="number">0</span>a</span><br><span class="line">route delete <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span></span><br><span class="line">route add -p <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> mask <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">0</span>.<span class="number">250</span> metric <span class="number">1</span></span><br><span class="line">route add -p <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> mask <span class="number">255</span>.<span class="number">255</span>.<span class="number">252</span>.<span class="number">0</span> <span class="number">172</span>.<span class="number">16</span>.<span class="number">4</span>.<span class="number">1</span> metric <span class="number">20</span></span><br><span class="line">route <span class="built_in">print</span></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -410,11 +408,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vb/" rel="tag"># vb</a>
-          
-            <a href="/tags/LabVIEW/" rel="tag"># LabVIEW</a>
-          
-            <a href="/tags/dll/" rel="tag"># dll</a>
+            <a href="/tags/bat/" rel="tag"># bat</a>
           
         </div>
       
@@ -427,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2011/06/06/110606-duanwu/" rel="next" title="duanwu">
-                <i class="fa fa-chevron-left"></i> duanwu
+              <a href="/2012/06/15/120615-vb-comm/" rel="next" title="vb-串口程序">
+                <i class="fa fa-chevron-left"></i> vb-串口程序
               </a>
             
           </div>
@@ -437,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2011/07/24/110724-labview-ubuntu/" rel="prev" title="LabVIEW6.1运行在ubuntu上（问题）">
-                LabVIEW6.1运行在ubuntu上（问题） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/08/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-DLL-文件（方法来自网络）"><span class="nav-number">1.</span> <span class="nav-text">创建 DLL 文件（方法来自网络）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LabVIEW-的调用"><span class="nav-number">2.</span> <span class="nav-text">LabVIEW 的调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">3.</span> <span class="nav-text">Demo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#批处理"><span class="nav-number">2.</span> <span class="nav-text">批处理</span></a></li></ol></div>
             
 
           </div>
