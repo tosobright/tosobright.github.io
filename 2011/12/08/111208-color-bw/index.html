@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="soshare">
 <meta property="og:description" content="彩色图像的四种模型：RGB、HSL、HSV、HSI。（YUV）RGB：Red（红）、Green（绿）、Blue（蓝）HSL：Hue（色调）、Saturation（饱和度 ）、Luminance（亮度 ）HSV：Hue（色调）、Saturation（饱和度 ）、Value（亮度 ）HSI：Hue（色调）、Saturation（饱和度 ）、Intensity（亮度 ） 资料来源：百度百科(RGB\HS">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-13T07:53:31.420Z">
+<meta property="og:updated_time" content="2019-10-13T07:56:28.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="彩色图像的四种模型以及转化为黑白图像">
 <meta name="twitter:description" content="彩色图像的四种模型：RGB、HSL、HSV、HSI。（YUV）RGB：Red（红）、Green（绿）、Blue（蓝）HSL：Hue（色调）、Saturation（饱和度 ）、Luminance（亮度 ）HSV：Hue（色调）、Saturation（饱和度 ）、Value（亮度 ）HSI：Hue（色调）、Saturation（饱和度 ）、Intensity（亮度 ） 资料来源：百度百科(RGB\HS">
@@ -330,8 +330,8 @@
 
       
         <p>彩色图像的四种模型：RGB、HSL、HSV、HSI。（YUV）<br>RGB：Red（红）、Green（绿）、Blue（蓝）<br>HSL：Hue（色调）、Saturation（饱和度 ）、Luminance（亮度 ）<br>HSV：Hue（色调）、Saturation（饱和度 ）、Value（亮度 ）<br>HSI：Hue（色调）、Saturation（饱和度 ）、Intensity（亮度 ）</p>
-<p>资料来源：百度百科(RGB\HSL\HSV\HSI)<br>HSL 与 RGB 转换</p>
-<p>a) RGB→HSL 的算法描述。</p>
+<p>资料来源：百度百科(RGB\HSL\HSV\HSI)</p>
+<h1 id="HSL-与-RGB-转换"><a href="#HSL-与-RGB-转换" class="headerlink" title="HSL 与 RGB 转换"></a>HSL 与 RGB 转换</h1><p>a) RGB→HSL 的算法描述。</p>
 <p>步骤 1：把 RGB 值转成【0，1】中数值。</p>
 <p>步骤 2：找出 R,G 和 B 中的最大值。<br>　　步骤 3：设 L=(maxcolor + mincolor)/2</p>
 <p>步骤 4：如果最大和最小的颜色值相同，即表示灰色，那么 S 定义为 0，而 H 未定义并在程序中通常写成 0。</p>
@@ -361,34 +361,17 @@
 <p>Else if 3.0*temp3&lt;2,</p>
 <p>color=temp1+(temp2-temp1)<em>((2.0/3.0)-temp3)</em>6.0</p>
 <p>Else color=temp1</p>
-<p>HSV 与 RGB 转换</p>
-<pre><code>a)RGB转化到HSV的算法</code></pre><p>max=max(R,G,B)2:</p>
-<p>min=min(R,G,B)</p>
-<p>V=max(R,G,B)11</p>
-<p>:</p>
-<p>S=(max-min)/max3:</p>
-<p>ifR = max,H = (G-B)/(max-min)* 60</p>
-<p>ifG = max,H = 120+ (B-R)/(max-min)* 60</p>
-<p>ifB = max,H = 240 + (R-G)/(max-min)* 60</p>
-<p>ifH &lt; 0,H = H+ 360</p>
-<p>b)HSV 转化到 RGB 的算法</p>
-<p>if s = 0</p>
-<p>R=G=B=V</p>
-<p>else</p>
-<p>H /= 60;</p>
-<p>i = INTEGER(H)</p>
-<p>f = H - i</p>
-<p>a = V * ( 1 - s )</p>
-<p>b = V _ ( 1 - s _ f )</p>
-<p>c = V _ ( 1 - s _ (1 - f ) )</p>
-<p>switch(i)</p>
-<p>case 0: R = V; G = c; B = a;<br>　　 case 1: R = b; G = v; B = a;</p>
-<p>case 2: R = a; G = v; B = c;</p>
-<p>case 3: R = a; G = b; B = v;</p>
-<p>case 4: R = c; G = a; B = v;</p>
-<p>case 5: R = v; G = a; B = b;</p>
-<p>HSI 与 RGB 转换</p>
-<p>1、 球体变换公式：<br>令 M=max(R,G,B) m=min(R,G,B)，其中 r g b 至少有一个为 0 或 1，则有：</p>
+<h1 id="HSV-与-RGB-转换"><a href="#HSV-与-RGB-转换" class="headerlink" title="HSV 与 RGB 转换"></a>HSV 与 RGB 转换</h1><ol>
+<li>RGB 转化到 HSV 的算法</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">max</span>=<span class="built_in">max</span>(R,G,B)<span class="number">2</span>:</span><br><span class="line"></span><br><span class="line"><span class="built_in">min</span>=<span class="built_in">min</span>(R,G,B)</span><br><span class="line"></span><br><span class="line">V=<span class="built_in">max</span>(R,G,B)<span class="number">11</span></span><br><span class="line"></span><br><span class="line">:</span><br><span class="line"></span><br><span class="line">S=(<span class="built_in">max</span>-<span class="built_in">min</span>)/max3:</span><br><span class="line"></span><br><span class="line">ifR = <span class="built_in">max</span>,H = (G-B)/(<span class="built_in">max</span>-<span class="built_in">min</span>)\* <span class="number">60</span></span><br><span class="line"></span><br><span class="line">ifG = <span class="built_in">max</span>,H = <span class="number">120</span>+ (B-R)/(<span class="built_in">max</span>-<span class="built_in">min</span>)\* <span class="number">60</span></span><br><span class="line"></span><br><span class="line">ifB = <span class="built_in">max</span>,H = <span class="number">240</span> + (R-G)/(<span class="built_in">max</span>-<span class="built_in">min</span>)\* <span class="number">60</span></span><br><span class="line"></span><br><span class="line">ifH &lt; <span class="number">0</span>,H = H+ <span class="number">360</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>HSV 转化到 RGB 的算法</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">R=G=B=V</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">H /= <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">i</span> = INTEGER(H)</span><br><span class="line"></span><br><span class="line">f = H - <span class="built_in">i</span></span><br><span class="line"></span><br><span class="line">a = V \* ( <span class="number">1</span> - s )</span><br><span class="line"></span><br><span class="line">b = V _ ( <span class="number">1</span> - s _ f )</span><br><span class="line"></span><br><span class="line">c = V _ ( <span class="number">1</span> - s _ (<span class="number">1</span> - f ) )</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(<span class="built_in">i</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="number">0</span>: R = V; G = c; B = a;</span><br><span class="line">　　 <span class="keyword">case</span> <span class="number">1</span>: R = b; G = v; B = a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>: R = a; G = v; B = c;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>: R = a; G = b; B = v;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>: R = c; G = a; B = v;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>: R = v; G = a; B = b;</span><br></pre></td></tr></table></figure>
+
+<h1 id="HSI-与-RGB-转换"><a href="#HSI-与-RGB-转换" class="headerlink" title="HSI 与 RGB 转换"></a>HSI 与 RGB 转换</h1><p>1、 球体变换公式：<br>令 M=max(R,G,B) m=min(R,G,B)，其中 r g b 至少有一个为 0 或 1，则有：</p>
 <p>(1)明度</p>
 <pre><code>I=(M+m)/2</code></pre><p>(2)饱和度</p>
 <p>当 M=m 时，S=0</p>
@@ -567,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -678,6 +670,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HSL-与-RGB-转换"><span class="nav-number">1.</span> <span class="nav-text">HSL 与 RGB 转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HSV-与-RGB-转换"><span class="nav-number">2.</span> <span class="nav-text">HSV 与 RGB 转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HSI-与-RGB-转换"><span class="nav-number">3.</span> <span class="nav-text">HSI 与 RGB 转换</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
