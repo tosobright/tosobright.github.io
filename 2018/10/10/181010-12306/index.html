@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,12306,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍使用 python2.7 开发，登录网站，获取数据，模拟数据，邮箱通知！ 用于 python 爬虫学习 涉及相关 python 库  PIL bs4 prettytable json re urllib urllib2 smtplib  工具 Python2.7 Fiddler 4 Vs code  开源 Github Gitee  配置文件 浏览器头文件 123456789101112# 浏">
+<meta name="keywords" content="python,12306">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-12306">
+<meta property="og:url" content="http://www.soshare.cn/2018/10/10/181010-12306/index.html">
+<meta property="og:site_name" content="soshare">
+<meta property="og:description" content="介绍使用 python2.7 开发，登录网站，获取数据，模拟数据，邮箱通知！ 用于 python 爬虫学习 涉及相关 python 库  PIL bs4 prettytable json re urllib urllib2 smtplib  工具 Python2.7 Fiddler 4 Vs code  开源 Github Gitee  配置文件 浏览器头文件 123456789101112# 浏">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-26T01:26:02.152Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python-12306">
+<meta name="twitter:description" content="介绍使用 python2.7 开发，登录网站，获取数据，模拟数据，邮箱通知！ 用于 python 爬虫学习 涉及相关 python 库  PIL bs4 prettytable json re urllib urllib2 smtplib  工具 Python2.7 Fiddler 4 Vs code  开源 Github Gitee  配置文件 浏览器头文件 123456789101112# 浏">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.soshare.cn/2018/10/10/181010-12306/">
+
+
+
+<script data-ad-client="ca-pub-3578624407535320" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  <title>python-12306 | soshare</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">soshare</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-file">
+          <a href="http://taosha126.ys168.com" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-file"></i> <br>
+            
+            File
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.soshare.cn/2018/10/10/181010-12306/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tosobright">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="soshare">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">python-12306</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-10T08:42:38+08:00">
+                2018-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/10/181010-12306/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/10/181010-12306/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/10/181010-12306/" class="leancloud_visitors" data-flag-title="python-12306">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>使用 python2.7 开发，登录网站，获取数据，模拟数据，邮箱通知！</p>
+<p>用于 python 爬虫学习</p>
+<p>涉及相关 python 库</p>
+<ul>
+<li>PIL</li>
+<li>bs4</li>
+<li>prettytable</li>
+<li>json</li>
+<li>re</li>
+<li>urllib</li>
+<li>urllib2</li>
+<li>smtplib</li>
+</ul>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
+<li>Python2.7</li>
+<li>Fiddler 4</li>
+<li>Vs code</li>
+</ul>
+<h1 id="开源"><a href="#开源" class="headerlink" title="开源"></a>开源</h1><ul>
+<li><a href="https://github.com/tosobright/ticket_12306" target="_blank" rel="noopener">Github</a></li>
+<li><a href="https://gitee.com/tosobright/ticket_12306" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ol>
+<li><p>浏览器头文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浏览器headers</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">"Host"</span>: <span class="string">"kyfw.12306.cn"</span>,</span><br><span class="line">    <span class="string">"Referer"</span>: <span class="string">"https://kyfw.12306.cn/otn/passport?redirect=/otn/"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers2 = &#123;</span><br><span class="line">    <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">"Host"</span>: <span class="string">"kyfw.12306.cn"</span>,</span><br><span class="line">    <span class="string">"Referer"</span>: <span class="string">"https://kyfw.12306.cn/otn/login/init"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网站功能地址</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#########登录###########</span></span><br><span class="line">init_url = <span class="string">'https://kyfw.12306.cn/otn/login/init'</span></span><br><span class="line">captcha_url = <span class="string">'https://kyfw.12306.cn/passport/captcha/captcha-image?&#123;&#125;'</span></span><br><span class="line">login_url = <span class="string">'https://kyfw.12306.cn/passport/web/login'</span></span><br><span class="line">check_captcha_url = <span class="string">'https://kyfw.12306.cn/passport/captcha/captcha-check'</span></span><br><span class="line">uamtk_url = <span class="string">'https://kyfw.12306.cn/passport/web/auth/uamtk'</span></span><br><span class="line">auth_url = <span class="string">'https://kyfw.12306.cn/otn/uamauthclient'</span></span><br><span class="line">initmy12306_url = <span class="string">'https://kyfw.12306.cn/otn/index/initMy12306'</span></span><br><span class="line"><span class="comment">#########查票###########</span></span><br><span class="line">left_tickets_sel_init = <span class="string">'https://kyfw.12306.cn/otn/leftTicket/init'</span></span><br><span class="line">left_tickets_url = <span class="string">'https://kyfw.12306.cn/otn/leftTicket/queryZ?'</span></span><br><span class="line"><span class="comment">#########下单###########</span></span><br><span class="line">checkuser_url = <span class="string">'https://kyfw.12306.cn/otn/login/checkUser'</span></span><br><span class="line">submit_order_url = <span class="string">'https://kyfw.12306.cn/otn/leftTicket/submitOrderRequest'</span></span><br><span class="line">confirm_passenger_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/initDc'</span></span><br><span class="line">get_passenger_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/getPassengerDTOs'</span></span><br><span class="line">check_order_info_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/checkOrderInfo'</span></span><br><span class="line">get_queue_count_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/getQueueCount'</span></span><br><span class="line">get_pass_code_new_url = <span class="string">'https://kyfw.12306.cn/otn/passcodeNew/getPassCodeNew'</span></span><br><span class="line">confirm_order_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/confirmSingleForQueue'</span></span><br><span class="line">wait_oder_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/queryOrderWaitTime'</span></span><br><span class="line">get_result_order_url = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/resultOrderForDcQueue'</span></span><br><span class="line">resultOrderForDcQueue = <span class="string">'https://kyfw.12306.cn/otn/confirmPassenger/resultOrderForDcQueue'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手动验证码地址</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">captcha_point = &#123;</span><br><span class="line">    <span class="string">'1'</span>: <span class="string">'40,43'</span>,</span><br><span class="line">    <span class="string">'2'</span>: <span class="string">'110,43'</span>,</span><br><span class="line">    <span class="string">'3'</span>: <span class="string">'180,43'</span>,</span><br><span class="line">    <span class="string">'4'</span>: <span class="string">'260,43'</span>,</span><br><span class="line">    <span class="string">'5'</span>: <span class="string">'40,117'</span>,</span><br><span class="line">    <span class="string">'6'</span>: <span class="string">'110,117'</span>,</span><br><span class="line">    <span class="string">'7'</span>: <span class="string">'180,117'</span>,</span><br><span class="line">    <span class="string">'8'</span>: <span class="string">'260,117'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他配置文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##############################################</span></span><br><span class="line"><span class="comment">#需要修改的配置文件</span></span><br><span class="line"><span class="comment">##############################################</span></span><br><span class="line"><span class="comment"># 12306账号信息</span></span><br><span class="line">logininfo = &#123;</span><br><span class="line">    <span class="string">'username'</span>: <span class="string">'tosobo'</span>,               <span class="comment">#修改   帐号</span></span><br><span class="line">    <span class="string">'password'</span>: <span class="string">''</span>,           <span class="comment">#修改   帐号密码</span></span><br><span class="line">    <span class="string">'appid'</span>: <span class="string">'otn'</span></span><br><span class="line">&#125;</span><br><span class="line">loginname = <span class="string">u'沙'</span>                     <span class="comment">#修改   帐号名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#购票信息</span></span><br><span class="line">From_Station = <span class="string">'武汉'</span>                   <span class="comment">#修改    起点站</span></span><br><span class="line">To_Station = <span class="string">'深圳'</span>                     <span class="comment">#修改    终点站</span></span><br><span class="line">Train_Date = <span class="string">'2019-02-12'</span>               <span class="comment">#修改    订票日期</span></span><br><span class="line">TrainNumber = [<span class="string">'G1007'</span>,<span class="string">'G1009'</span>,<span class="string">'G1013'</span>,<span class="string">'G73'</span>,<span class="string">'G71'</span>,<span class="string">'G1015'</span>,<span class="string">'G79'</span>,<span class="string">'G1017'</span>,<span class="string">''</span>]              <span class="comment">#修改   车次，为空刷所有</span></span><br><span class="line">SeatType = <span class="string">'二等座'</span>                     <span class="comment">#修改   座次类型</span></span><br><span class="line">TicketName = [<span class="string">'沙'</span>,<span class="string">'娟'</span>]          <span class="comment">#修改   购票人名字</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通知邮箱</span></span><br><span class="line">Email = <span class="string">'tosobright@qq.com'</span>             <span class="comment">#修改</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ul>
+<li><p>打开登陆页面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.init_url, headers=config.headers))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    html = response.read()</span><br><span class="line">    soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</span><br><span class="line">    <span class="keyword">print</span> soup.find(id=<span class="string">"login_user"</span>).text.strip().encode(<span class="string">'gbk'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送验证码</p>
+<ul>
+<li><p>获取验证码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">captcha_data = &#123;</span><br><span class="line">    <span class="string">"login_site"</span>: <span class="string">"E"</span>,</span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"login"</span>,</span><br><span class="line">    <span class="string">"rand"</span>: <span class="string">"sjrand"</span>,</span><br><span class="line">    <span class="string">"0.17231872703389062"</span>: <span class="string">""</span></span><br><span class="line">&#125;</span><br><span class="line">param = urlencode(captcha_data)</span><br><span class="line">url = config.captcha_url.format(param)</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    url, headers=config.headers))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    file = BytesIO(response.read())</span><br><span class="line">    img = Image.open(file)</span><br><span class="line">    img.show()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取验证码输入坐标</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">positions = raw_input(<span class="string">"输入验证码(以','分割)："</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">pos = positions.rstrip(<span class="string">'\r'</span>).strip().split(<span class="string">','</span>)</span><br><span class="line">temp = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> pos:</span><br><span class="line">    temp += config.captcha_point[item] + <span class="string">','</span></span><br><span class="line">pos_res = temp.rstrip(<span class="string">','</span>)</span><br><span class="line"><span class="keyword">print</span> pos_res</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>核对验证码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">captcha_postdata = &#123;</span><br><span class="line">    <span class="string">"answer"</span>: pos_res,</span><br><span class="line">    <span class="string">"login_site"</span>: <span class="string">"E"</span>,</span><br><span class="line">    <span class="string">"rand"</span>: <span class="string">"sjrand"</span></span><br><span class="line">&#125;</span><br><span class="line">captcha_postdata = urlencode(captcha_postdata)</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(config.check_captcha_url,</span><br><span class="line">                                          headers=config.headers2), data=captcha_postdata)</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    result_message = result.get(<span class="string">"result_message"</span>)</span><br><span class="line">    result_message = result_message.encode(<span class="string">'gbk'</span>)</span><br><span class="line">    <span class="keyword">print</span> result_message</span><br><span class="line">    <span class="keyword">if</span> result.get(<span class="string">"result_code"</span>) == <span class="string">"4"</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"captcha OK"</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>发送登录信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.login_url, headers=config.headers), data=urlencode(config.logininfo))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    print(result.get(<span class="string">'result_message'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    <span class="keyword">if</span> result.get(<span class="string">'result_code'</span>) != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.uamtk_url, headers=config.headers), data=urlencode(&#123;<span class="string">"appid"</span>: <span class="string">"otn"</span>&#125;))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    print(<span class="string">"uamtk:"</span> + result.get(<span class="string">"result_message"</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    newapptk = result.get(<span class="string">"newapptk"</span>)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.auth_url, headers=config.headers), data=urlencode(&#123;<span class="string">"tk"</span>: newapptk&#125;))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    print(<span class="string">"auth:"</span> + result.get(<span class="string">"result_message"</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    print(<span class="string">"username:"</span> + result.get(<span class="string">"username"</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.initmy12306_url, headers=config.headers))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    html = response.read()</span><br><span class="line">    soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</span><br><span class="line">    name = soup.find(id=<span class="string">"login_user"</span>).text.strip()</span><br><span class="line">    <span class="keyword">print</span> name.encode(<span class="string">'gbk'</span>)</span><br><span class="line">    <span class="keyword">if</span> name == config.loginname:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="获取站点代码"><a href="#获取站点代码" class="headerlink" title="获取站点代码"></a>获取站点代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">station_url = <span class="string">'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9069'</span></span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">        station_url, headers=config.headers))</span><br><span class="line">jstxt = response.read().split(<span class="string">'\''</span>)[<span class="number">1</span>]</span><br><span class="line">station = jstxt.split(<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> station:</span><br><span class="line">    <span class="keyword">if</span> item != <span class="string">''</span>:</span><br><span class="line">        v = item.split(<span class="string">'|'</span>)</span><br><span class="line">        dict[v[<span class="number">1</span>]] = v[<span class="number">2</span>]</span><br><span class="line">print(<span class="string">'GetStation Suc...'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询余票"><a href="#查询余票" class="headerlink" title="查询余票"></a>查询余票</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.left_tickets_sel_init, headers=config.headers))</span><br><span class="line"><span class="comment"># time.sleep(1000)</span></span><br><span class="line"><span class="comment"># https://kyfw.12306.cn/otn/leftTicket/queryA?leftTicketDTO.train_date=2018-10-01&amp;leftTicketDTO.from_station=SZQ&amp;leftTicketDTO.to_station=WHN&amp;purpose_codes=ADULT</span></span><br><span class="line">left_tickets_url = config.left_tickets_url + \</span><br><span class="line">    <span class="string">'leftTicketDTO.train_date='</span> + config.Train_Date + \</span><br><span class="line">    <span class="string">'&amp;leftTicketDTO.from_station='</span> + station.GetStationDict(config.From_Station) + \</span><br><span class="line">    <span class="string">'&amp;leftTicketDTO.to_station='</span> + station.GetStationDict(config.To_Station) + \</span><br><span class="line">    <span class="string">'&amp;purpose_codes=ADULT'</span></span><br><span class="line"><span class="keyword">print</span> left_tickets_url</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    left_tickets_url, headers=config.headers))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    r = response.read()</span><br><span class="line">    jdict = json.loads(r)</span><br><span class="line">    raw_trains = jdict[<span class="string">'data'</span>]</span><br><span class="line">    raw_trains = raw_trains[<span class="string">'result'</span>]</span><br><span class="line">    pt = PrettyTable()</span><br><span class="line">    pt._set_field_names(<span class="string">"车次,车站,时间,经历时,一等座,二等座,软卧,硬卧,硬座,无座"</span>.split(<span class="string">','</span>))</span><br><span class="line">    train_dict = []</span><br><span class="line">    <span class="keyword">for</span> raw_train <span class="keyword">in</span> raw_trains:</span><br><span class="line">        <span class="comment"># split切割之后得到的是一个列表</span></span><br><span class="line">        data_list = raw_train.split(<span class="string">"|"</span>)</span><br><span class="line">        dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        orderurlstr = unquote(data_list[<span class="number">0</span>])</span><br><span class="line">        dict[<span class="string">'orderurlstr'</span>] = orderurlstr</span><br><span class="line">        stationTrainCode = data_list[<span class="number">2</span>]</span><br><span class="line">        dict[<span class="string">'stationTrainCode'</span>] = stationTrainCode</span><br><span class="line">        train_no = data_list[<span class="number">3</span>]</span><br><span class="line">        dict[<span class="string">'train_no'</span>] = train_no</span><br><span class="line">        from_station_code = data_list[<span class="number">6</span>]</span><br><span class="line">        dict[<span class="string">'from_station_code'</span>] = from_station_code</span><br><span class="line">        to_station_code = data_list[<span class="number">7</span>]</span><br><span class="line">        dict[<span class="string">'to_station_code'</span>] = to_station_code</span><br><span class="line">        from_station_name = station.GetStationName(from_station_code)</span><br><span class="line">        dict[<span class="string">'from_station_name'</span>] = from_station_name</span><br><span class="line">        to_station_name = station.GetStationName(to_station_code)</span><br><span class="line">        dict[<span class="string">'to_station_name'</span>] = to_station_name</span><br><span class="line">        start_time = data_list[<span class="number">8</span>]</span><br><span class="line">        dict[<span class="string">'start_time'</span>] = start_time</span><br><span class="line">        arrive_time = data_list[<span class="number">9</span>]</span><br><span class="line">        dict[<span class="string">'arrive_time'</span>] = arrive_time</span><br><span class="line">        time_duration = data_list[<span class="number">10</span>]</span><br><span class="line">        dict[<span class="string">'time_duration'</span>] = time_duration</span><br><span class="line">        train_location = data_list[<span class="number">15</span>]</span><br><span class="line">        dict[<span class="string">'train_location'</span>] = train_location</span><br><span class="line">        first_class_seat = data_list[<span class="number">31</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'first_class_seat'</span>] = first_class_seat</span><br><span class="line">        second_class_seat = data_list[<span class="number">30</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'second_class_seat'</span>] = second_class_seat</span><br><span class="line">        soft_sleep = data_list[<span class="number">23</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'soft_sleep'</span>] = soft_sleep</span><br><span class="line">        hard_sleep = data_list[<span class="number">28</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'hard_sleep'</span>] = hard_sleep</span><br><span class="line">        hard_seat = data_list[<span class="number">29</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'hard_seat'</span>] = hard_seat</span><br><span class="line">        no_seat = data_list[<span class="number">33</span>] <span class="keyword">or</span> <span class="string">"--"</span></span><br><span class="line">        dict[<span class="string">'no_seat'</span>] = no_seat</span><br><span class="line"></span><br><span class="line">        pt.add_row([</span><br><span class="line">            <span class="comment"># 对特定文字添加颜色</span></span><br><span class="line">            train_no,</span><br><span class="line">            <span class="string">'\n'</span>.join([station.GetStationName(from_station_code),</span><br><span class="line">                        station.GetStationName(to_station_code)]),</span><br><span class="line">            <span class="string">'\n'</span>.join([start_time, arrive_time]),</span><br><span class="line">            time_duration,</span><br><span class="line">            first_class_seat,</span><br><span class="line">            second_class_seat,</span><br><span class="line">            soft_sleep,</span><br><span class="line">            hard_sleep,</span><br><span class="line">            hard_seat,</span><br><span class="line">            no_seat</span><br><span class="line">        ])</span><br><span class="line">        train_dict.append(dict)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(pt)</span></span><br><span class="line">    <span class="keyword">print</span> train_dict</span><br><span class="line">    <span class="keyword">return</span> train_dict</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查用户登录情况"><a href="#检查用户登录情况" class="headerlink" title="检查用户登录情况"></a>检查用户登录情况</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.checkuser_url, headers=config.headers), data=urlencode(&#123;<span class="string">"_json_att"</span>: <span class="string">""</span>&#125;))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'flag'</span>]:</span><br><span class="line">        print(<span class="string">'用户在线验证成功'</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'检查到用户不在线，请重新登陆'</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初次提交订单"><a href="#初次提交订单" class="headerlink" title="初次提交订单"></a>初次提交订单</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">"secretStr"</span>: train_number_str,</span><br><span class="line">        <span class="string">"train_date"</span>: config.Train_Date,</span><br><span class="line">        <span class="string">"back_train_date"</span>: datetime.datetime.now().strftime(<span class="string">"%Y-%m-%d"</span>),</span><br><span class="line">        <span class="string">"tour_flag"</span>: <span class="string">"dc"</span>,</span><br><span class="line">        <span class="string">"purpose_codes"</span>: <span class="string">"ADULT"</span>,</span><br><span class="line">        <span class="string">"query_from_station_name"</span>: config.From_Station,</span><br><span class="line">        <span class="string">"query_to_station_name"</span>: config.To_Station,</span><br><span class="line">        <span class="string">"undefined"</span>: <span class="string">""</span></span><br><span class="line">        &#125;</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.submit_order_url, headers=config.headers), data=urlencode(data))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">if</span> result[<span class="string">'status'</span>]:</span><br><span class="line">        print(<span class="string">'初次提交订单成功'</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">elif</span> result[<span class="string">'messages'</span>] != []:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'messages'</span>][<span class="number">0</span>] == <span class="string">"车票信息已过期，请重新查询最新车票信息"</span>:</span><br><span class="line">            print(<span class="string">'车票信息已过期，请重新查询最新车票信息'</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"ticketInfoOutData"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"提交失败"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取旅客信息"><a href="#获取旅客信息" class="headerlink" title="获取旅客信息"></a>获取旅客信息</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"_json_att"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"REPEAT_SUBMIT_TOKEN"</span>: reSubmitTk</span><br><span class="line">&#125;</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.get_passenger_url, headers=config.headers), data=urlencode(data))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> result[<span class="string">'messages'</span>] != []:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'messages'</span>][<span class="number">0</span>] == <span class="string">'系统忙，请稍后重试'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'systembusy'</span></span><br><span class="line">    passengerAllInfoList = result[<span class="string">'data'</span>][<span class="string">'normal_passengers'</span>]</span><br><span class="line">    print(<span class="string">"获取联系人信息成功"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    <span class="keyword">return</span> passengerAllInfoList</span><br></pre></td></tr></table></figure>
+
+<h2 id="核对订单"><a href="#核对订单" class="headerlink" title="核对订单"></a>核对订单</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">passengerTicketStr = <span class="string">""</span></span><br><span class="line">oldPassengerStr = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> passengerslist:</span><br><span class="line">    passengerTicketStr += seat.GetSeatType(config.SeatType) + <span class="string">',0,1,'</span> + \</span><br><span class="line">        item[<span class="string">'passenger_name'</span>] + <span class="string">',1,'</span> + \</span><br><span class="line">        item[<span class="string">'passenger_id_no'</span>] + <span class="string">','</span> + item[<span class="string">'mobile_no'</span>] + <span class="string">',N_'</span></span><br><span class="line">    oldPassengerStr += item[<span class="string">'passenger_name'</span>] + \</span><br><span class="line">        <span class="string">',1,'</span> + item[<span class="string">'passenger_id_no'</span>]+<span class="string">',1_'</span></span><br><span class="line"></span><br><span class="line">passengerTicketStr = passengerTicketStr.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">oldPassengerStr = oldPassengerStr.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"cancel_flag"</span>: <span class="string">"2"</span>,</span><br><span class="line">    <span class="string">"bed_level_order_num"</span>: <span class="string">"000000000000000000000000000000"</span>,</span><br><span class="line">    <span class="string">"passengerTicketStr"</span>: passengerTicketStr,</span><br><span class="line">    <span class="string">"oldPassengerStr"</span>: oldPassengerStr,</span><br><span class="line">    <span class="string">"tour_flag"</span>: <span class="string">"dc"</span>,</span><br><span class="line">    <span class="string">"tour_flag"</span>: <span class="string">"dc"</span>,</span><br><span class="line">    <span class="string">"randCode"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"whatsSelect"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"_json_att"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"REPEAT_SUBMIT_TOKEN"</span>: reSubmitTk</span><br><span class="line">&#125;</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.check_order_info_url, headers=config.headers), data=urlencode(data))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'submitStatus'</span>]:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'ifShowPassCode'</span>] == <span class="string">'N'</span>:</span><br><span class="line">            print(<span class="string">"checkOrder"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'ifShowPassCode'</span>] == <span class="string">'Y'</span>:</span><br><span class="line">            GetBuyImage()</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Need Random Code"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"checkOrderFail"</span>)</span><br><span class="line">        print(result[<span class="string">'data'</span>][<span class="string">'errMsg'</span>].encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取队列"><a href="#获取队列" class="headerlink" title="获取队列"></a>获取队列</h2><ul>
+<li><p>开始进入购票队列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">thatdaydata = datetime.datetime.strptime(config.Train_Date, <span class="string">"%Y-%m-%d"</span>)</span><br><span class="line">train_date_f = <span class="string">"&#123;&#125; &#123;&#125; &#123;&#125; &#123;&#125; 00:00:00 GMT+0800 (中国标准时间)"</span>.format(thatdaydata.strftime(<span class="string">'%a'</span>),</span><br><span class="line">                                                                thatdaydata.strftime(</span><br><span class="line">    <span class="string">'%b'</span>), config.Train_Date.split(<span class="string">'-'</span>)[<span class="number">2</span>],</span><br><span class="line">    config.Train_Date.split(<span class="string">'-'</span>)[<span class="number">0</span>])</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"train_date"</span>: train_date_f,</span><br><span class="line">    <span class="string">"train_no"</span>: trainInfo[<span class="string">'train_no'</span>],</span><br><span class="line">    <span class="string">"stationTrainCode"</span>: trainInfo[<span class="string">'stationTrainCode'</span>],</span><br><span class="line">    <span class="string">"seatType"</span>: seat.GetSeatType(config.SeatType),</span><br><span class="line">    <span class="string">"fromStationTelecode"</span>: trainInfo[<span class="string">'from_station_code'</span>],</span><br><span class="line">    <span class="string">"toStationTelecode"</span>: trainInfo[<span class="string">'to_station_code'</span>],</span><br><span class="line">    <span class="string">"leftTicket"</span>: leftTicketStr,</span><br><span class="line">    <span class="string">"purpose_codes"</span>: <span class="string">"00"</span>,</span><br><span class="line">    <span class="string">"train_location"</span>: trainInfo[<span class="string">'train_location'</span>],</span><br><span class="line">    <span class="string">"_json_att"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"REPEAT_SUBMIT_TOKEN"</span>: reSubmitTk</span><br><span class="line">&#125;</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.get_queue_count_url, headers=config.headers), data=urlencode(data))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"NetWorkError"</span></span><br><span class="line"><span class="keyword">if</span> result[<span class="string">'status'</span>]:</span><br><span class="line">    print(<span class="string">"进入队列成功"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"进入队列失败"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确认单人队列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">passengerTicketStr = <span class="string">""</span></span><br><span class="line">oldPassengerStr = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> passengerslist:</span><br><span class="line">    passengerTicketStr += seat.GetSeatType(config.SeatType) + <span class="string">',0,1,'</span> + \</span><br><span class="line">        item[<span class="string">'passenger_name'</span>] + <span class="string">',1,'</span> + \</span><br><span class="line">        item[<span class="string">'passenger_id_no'</span>] + <span class="string">','</span> + item[<span class="string">'mobile_no'</span>]+<span class="string">',N_'</span></span><br><span class="line">    oldPassengerStr += item[<span class="string">'passenger_name'</span>] + \</span><br><span class="line">        <span class="string">',1,'</span> + item[<span class="string">'passenger_id_no'</span>]+<span class="string">',1_'</span></span><br><span class="line"></span><br><span class="line">passengerTicketStr = passengerTicketStr.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">oldPassengerStr = oldPassengerStr.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"passengerTicketStr"</span>: passengerTicketStr,</span><br><span class="line">    <span class="string">"oldPassengerStr"</span>: oldPassengerStr,</span><br><span class="line">    <span class="string">"randCode"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"purpose_codes"</span>: <span class="string">"00"</span>,</span><br><span class="line">    <span class="string">"key_check_isChange"</span>: keyIsChange,</span><br><span class="line">    <span class="string">"leftTicketStr"</span>: leftTicketStr,</span><br><span class="line">    <span class="string">"train_location"</span>: traininfo[<span class="string">'train_location'</span>],</span><br><span class="line">    <span class="string">"choose_seats"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"seatDetailType"</span>: <span class="string">"000"</span>,</span><br><span class="line">    <span class="string">"whatsSelect"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"roomType"</span>: <span class="string">"00"</span>,</span><br><span class="line">    <span class="string">"dwAll"</span>: <span class="string">"N"</span>,</span><br><span class="line">    <span class="string">"_json_att"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"REPEAT_SUBMIT_TOKEN"</span>: reSubmitTk</span><br><span class="line">&#125;</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(</span><br><span class="line">    config.confirm_order_url, headers=config.headers), data=urlencode(data))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"NetWorkError"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'submitStatus'</span>] <span class="keyword">is</span> <span class="literal">True</span>:</span><br><span class="line">            print(<span class="string">"确认提交订单成功"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">elif</span> result[<span class="string">'data'</span>][<span class="string">'errMsg'</span>] == <span class="string">u"验证码输入错误！"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"wrongCode"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"提交订单失败"</span>.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="等待队列"><a href="#等待队列" class="headerlink" title="等待队列"></a>等待队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">orderId = <span class="string">''</span></span><br><span class="line">url = config.wait_oder_url + <span class="string">'?random=&#123;&#125;&amp;tourFlag=dc&amp;_json_att=&amp;REPEAT_SUBMIT_TOKEN=&#123;&#125;'</span>.format(</span><br><span class="line">    int(time.time()*<span class="number">1000</span>), reSubmitTk)</span><br><span class="line">response = urllib2.urlopen(urllib2.Request(url, headers=config.headers))</span><br><span class="line"><span class="keyword">if</span> response.getcode() == <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = json.loads(response.read())</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">    <span class="keyword">if</span> result[<span class="string">'status'</span>]:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'queryOrderWaitTimeStatus'</span>]:</span><br><span class="line">            <span class="keyword">if</span> result[<span class="string">'data'</span>][<span class="string">'waitTime'</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">print</span> result[<span class="string">'data'</span>][<span class="string">'waitTime'</span>]</span><br><span class="line">                <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">            <span class="keyword">elif</span> result[<span class="string">'data'</span>][<span class="string">'waitTime'</span>] == <span class="number">-1</span>:</span><br><span class="line">                orderId = result[<span class="string">'data'</span>][<span class="string">'orderId'</span>]</span><br><span class="line">                <span class="keyword">print</span> orderId</span><br><span class="line">                <span class="keyword">print</span> <span class="string">"请登录12306，完成后续支付"</span></span><br><span class="line">                <span class="keyword">return</span> orderId</span><br><span class="line">            <span class="keyword">elif</span> result[<span class="string">'data'</span>][<span class="string">'waitTime'</span>] == <span class="number">-2</span>:</span><br><span class="line">                <span class="keyword">print</span> result[<span class="string">'data'</span>][<span class="string">'msg'</span>].encode(<span class="string">'gbk'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'error'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'error'</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SMTP 服务</span></span><br><span class="line">mail_host = <span class="string">"smtp.126.com"</span>  <span class="comment">#设置服务器</span></span><br><span class="line">mail_port = <span class="number">25</span></span><br><span class="line">mail_user = <span class="string">""</span>    <span class="comment">#用户名</span></span><br><span class="line">mail_pass = <span class="string">""</span>   <span class="comment">#口令</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#收发信息</span></span><br><span class="line">FromEmail = <span class="string">'tipinfo@126.com'</span></span><br><span class="line">ToEmails = [config.Email,]  <span class="comment"># 接收邮件，可设置为你的QQ邮箱或者其他邮箱</span></span><br><span class="line"></span><br><span class="line">EmailTitle = <span class="string">'12306有票了'</span></span><br><span class="line">EmailContent = <span class="string">'快来付款！'</span></span><br><span class="line"></span><br><span class="line">msg = MIMEMultipart()</span><br><span class="line">msg[<span class="string">'From'</span>] = <span class="string">"&#123;&#125;"</span>.format(FromEmail)</span><br><span class="line">msg[<span class="string">'To'</span>] = <span class="string">","</span>.join(ToEmails)</span><br><span class="line">msg[<span class="string">'Subject'</span>] = EmailTitle</span><br><span class="line"></span><br><span class="line">msg.attach(MIMEText(EmailContent, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#attach1 = MIMEText(open('f:\getweather.log', 'rb').read(), 'base64', 'utf-8')</span></span><br><span class="line"><span class="comment">#attach1["Content-Type"] = 'pplication/octet-stream'</span></span><br><span class="line"><span class="comment">#attach1["Content-Disposition"] = 'attrachment;filename="getweather.txt"'</span></span><br><span class="line"><span class="comment">#msg.attach(attach1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    server = smtplib.SMTP(mail_host, mail_port)</span><br><span class="line">    server.set_debuglevel(<span class="number">1</span>)</span><br><span class="line">    server.login(mail_user,mail_pass)</span><br><span class="line">    server.sendmail(FromEmail, ToEmails, msg.as_string())</span><br><span class="line">    server.quit()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"邮件发送成功"</span></span><br><span class="line"><span class="keyword">except</span> smtplib.SMTPException <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Error: 无法发送邮件"</span></span><br><span class="line">    <span class="keyword">print</span> e</span><br></pre></td></tr></table></figure></code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="tosobright WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.jpg" alt="tosobright Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    tosobright
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://www.soshare.cn/2018/10/10/181010-12306/" title="python-12306">http://www.soshare.cn/2018/10/10/181010-12306/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/12306/" rel="tag"><i class="fa fa-tag"></i> 12306</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/08/170208-labview-matp/" rel="next" title="LabVIEW MATP">
+                <i class="fa fa-chevron-left"></i> LabVIEW MATP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/08/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+      <script data-ad-client="ca-pub-3578624407535320" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tosobright">
+            
+              <p class="site-author-name" itemprop="name">tosobright</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tosobright" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/tosobright" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-git"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tosobright@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:toso@soshare.cn" target="_blank" title="E-Mail2">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.soshare.cn/" title="Soshare" target="_blank">Soshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开源"><span class="nav-number">3.</span> <span class="nav-text">开源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置文件"><span class="nav-number">4.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程"><span class="nav-number">5.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">5.1.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取站点代码"><span class="nav-number">5.2.</span> <span class="nav-text">获取站点代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询余票"><span class="nav-number">5.3.</span> <span class="nav-text">查询余票</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查用户登录情况"><span class="nav-number">5.4.</span> <span class="nav-text">检查用户登录情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初次提交订单"><span class="nav-number">5.5.</span> <span class="nav-text">初次提交订单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取旅客信息"><span class="nav-number">5.6.</span> <span class="nav-text">获取旅客信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核对订单"><span class="nav-number">5.7.</span> <span class="nav-text">核对订单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取队列"><span class="nav-number">5.8.</span> <span class="nav-text">获取队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等待队列"><span class="nav-number">5.9.</span> <span class="nav-text">等待队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发送邮件"><span class="nav-number">5.10.</span> <span class="nav-text">发送邮件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2010 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tosobright</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style>
+    <script src="//s95.cnzz.com/z_stat.php?id=1726916&web_id=1726916" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'TMSskYT1d5742mMn1W68iohd-gzGzoHsz',
+        appKey: 'dIOnzLoKHUh71UF48oH6r0Qe',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("TMSskYT1d5742mMn1W68iohd-gzGzoHsz", "dIOnzLoKHUh71UF48oH6r0Qe");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
