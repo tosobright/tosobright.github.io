@@ -82,15 +82,15 @@
 <meta name="description" content="介绍OPC（Object Linking and Embedding（OLE） for Process Control）是基于微软的 DCOM 的通信，用于过程控制和制造业自动化系统。  OPC DA（Data Access 协议，是最基本的 OPC 协议） OPC HDA（Historical Data Access 协议，有数据库） OPC UA（OPC UA: Unified Archite">
 <meta name="keywords" content="LabVIEW,python,opc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="191101-python-opc-lv">
+<meta property="og:title" content="Python OpenOPC与NI LabVIEW网络变量通信">
 <meta property="og:url" content="http://www.soshare.cn/2019/11/02/191101-python-opc-lv/index.html">
 <meta property="og:site_name" content="soshare">
 <meta property="og:description" content="介绍OPC（Object Linking and Embedding（OLE） for Process Control）是基于微软的 DCOM 的通信，用于过程控制和制造业自动化系统。  OPC DA（Data Access 协议，是最基本的 OPC 协议） OPC HDA（Historical Data Access 协议，有数据库） OPC UA（OPC UA: Unified Archite">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/f6cfd1f15d4b8136a208b63d64543feb/xmlnote/B7E9F01E2BFA4934851D33D4C93FCEF9/5691">
-<meta property="og:updated_time" content="2019-11-01T16:38:33.409Z">
+<meta property="og:updated_time" content="2019-11-02T09:52:27.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="191101-python-opc-lv">
+<meta name="twitter:title" content="Python OpenOPC与NI LabVIEW网络变量通信">
 <meta name="twitter:description" content="介绍OPC（Object Linking and Embedding（OLE） for Process Control）是基于微软的 DCOM 的通信，用于过程控制和制造业自动化系统。  OPC DA（Data Access 协议，是最基本的 OPC 协议） OPC HDA（Historical Data Access 协议，有数据库） OPC UA（OPC UA: Unified Archite">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/f6cfd1f15d4b8136a208b63d64543feb/xmlnote/B7E9F01E2BFA4934851D33D4C93FCEF9/5691">
 
@@ -129,7 +129,7 @@
 <script data-ad-client="ca-pub-3578624407535320" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
-  <title>191101-python-opc-lv | soshare</title>
+  <title>Python OpenOPC与NI LabVIEW网络变量通信 | soshare</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">191101-python-opc-lv</h2>
+          <h2 class="post-title" itemprop="name headline">Python OpenOPC与NI LabVIEW网络变量通信</h2>
         
 
         <div class="post-meta">
@@ -376,7 +376,7 @@
 
           
           
-             <span id="/2019/11/02/191101-python-opc-lv/" class="leancloud_visitors" data-flag-title="191101-python-opc-lv">
+             <span id="/2019/11/02/191101-python-opc-lv/" class="leancloud_visitors" data-flag-title="Python OpenOPC与NI LabVIEW网络变量通信">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,9 +433,9 @@
 <li><p>OPC 服务端</p>
 <ol>
 <li>winxp</li>
-<li>安装 OpenOPC 网关服务<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">OpenOPCService.exe</span> -<span class="title">install</span></span></span><br><span class="line"><span class="function"><span class="title">Installing</span> <span class="title">service</span> <span class="title">OpenOpcService</span></span></span><br><span class="line"><span class="function"><span class="title">Service</span> <span class="title">installed</span></span></span><br><span class="line"><span class="function"><span class="title">Starting</span> <span class="title">the</span> <span class="title">service</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">net</span> <span class="title">start</span> <span class="title">zzzOpenOpcService</span></span></span><br><span class="line"><span class="function"><span class="title">Stopping</span> <span class="title">the</span> <span class="title">service</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">net</span> <span class="title">stop</span> <span class="title">zzzOpenOpcService</span></span></span><br></pre></td></tr></table></figure>
-</li>
+<li>安装 OpenOPC 网关服务</li>
 </ol>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">OpenOPCService.exe</span> -<span class="title">install</span></span></span><br><span class="line"><span class="function"><span class="title">Installing</span> <span class="title">service</span> <span class="title">OpenOpcService</span></span></span><br><span class="line"><span class="function"><span class="title">Service</span> <span class="title">installed</span></span></span><br><span class="line"><span class="function"><span class="title">Starting</span> <span class="title">the</span> <span class="title">service</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">net</span> <span class="title">start</span> <span class="title">zzzOpenOpcService</span></span></span><br><span class="line"><span class="function"><span class="title">Stopping</span> <span class="title">the</span> <span class="title">service</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">OpenOPC</span>\<span class="title">bin</span>&gt; <span class="title">net</span> <span class="title">stop</span> <span class="title">zzzOpenOpcService</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>测试代码</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">2</span>.<span class="number">7</span>.<span class="number">17</span> (v2.<span class="number">7</span>.<span class="number">17</span>:c2f86d86e6, Oct <span class="number">19</span> <span class="number">2019</span>, <span class="number">20</span>:<span class="number">49</span>:<span class="number">36</span>) [MSC v.<span class="number">1500</span> <span class="number">32</span> bit (Intel)] on win32</span><br><span class="line"><span class="built_in">Type</span> "<span class="built_in">help</span>", "copyright", "credits" or "license" <span class="keyword">for</span> <span class="built_in">more</span> information.</span><br><span class="line">&gt;&gt;&gt; import OpenOPC</span><br><span class="line">&gt;&gt;&gt; opc = OpenOPC.open_client('<span class="number">192</span>.<span class="number">168</span>.<span class="number">2</span>.<span class="number">220</span>')</span><br><span class="line">&gt;&gt;&gt; opc</span><br><span class="line">&lt;DynamicProxy <span class="keyword">for</span> PYRO://<span class="number">192</span>.<span class="number">168</span>.<span class="number">2</span>.<span class="number">220</span>:<span class="number">7766</span>/c0a802dc076c1cbada8377276cdfc7f0&gt;</span><br><span class="line">&gt;&gt;&gt; opc.connect('National Instruments.Variable Engine.<span class="number">1</span>','<span class="number">192</span>.<span class="number">168</span>.<span class="number">2</span>.<span class="number">220</span>')</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> opc.read('test.var')</span><br><span class="line">(<span class="number">3</span>.<span class="number">0</span>, 'Good', '<span class="number">10</span>/<span class="number">31</span>/<span class="number">19</span> <span class="number">00</span>:<span class="number">53</span>:<span class="number">20</span>')</span><br><span class="line">&gt;&gt;&gt; opc.write(('test.var2',<span class="number">5</span>.<span class="number">0</span>))</span><br><span class="line">'Success'</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> opc.read('test.var2')</span><br><span class="line">(<span class="number">5</span>.<span class="number">0</span>, 'Good', '<span class="number">10</span>/<span class="number">31</span>/<span class="number">19</span> <span class="number">00</span>:<span class="number">54</span>:<span class="number">44</span>')</span><br></pre></td></tr></table></figure>
@@ -496,7 +496,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://www.soshare.cn/2019/11/02/191101-python-opc-lv/" title="191101-python-opc-lv">http://www.soshare.cn/2019/11/02/191101-python-opc-lv/</a>
+    <a href="http://www.soshare.cn/2019/11/02/191101-python-opc-lv/" title="Python OpenOPC与NI LabVIEW网络变量通信">http://www.soshare.cn/2019/11/02/191101-python-opc-lv/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
